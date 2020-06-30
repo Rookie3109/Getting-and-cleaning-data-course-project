@@ -24,3 +24,36 @@ The *allNames* variable was subsetted in the same manner as the data. The result
 #### Step 5: Create tidy dataset with average of each variable, by activity, by subject
 The *reducedSet* from the end of Step 4 was grouped by subject, then by activity and then summarized so that the observations in each row were the means of the variable columns, for that subject/activity. This was accomplished by applying the dplyr package verbs **group_by** and **summarise_each**. The resulting tidy data set was written to a file called tidy_dataset.txt.
 
+### Variables
+
+#### Variables: Environment and data source
+today = today's date, later coerced to data and time
+mySystem = description of computer hardware and software used in this analysis
+dataDescription = source project description from UCI Machine Learning Repository
+dataUrl = URL for zip archive of source data
+
+#### Variables: Imported files named according to source file names
+activity_labels = six activity codes and corresponding activity names
+features = feature names for X_test, X_train
+
+subject_test = test set subject number, 1-30
+X_test = test set feature measurements
+y_test = test set activity, coded 1-6
+
+Subject_train = train set subject number, 1-30
+X_train = train set feature measurements
+y_train = train set activity, coded 1-6
+
+#### Variables: Combined data sets
+test = subject_test, y_test, X_test combined, by columns
+train = subject_train, y_train, X_train combined, by columns
+fullSet = test, train, combined by rows
+
+#### Variables: Column names
+allNames = set of names corresponding to fullSet, not yet applied
+meanStdColumns = subject, activity, and all features with mean or standard deviation
+reducedSet = fullSet subsetted with meanStdColumns
+reducedNames = allNames subsetted with meanStdColumns, renamed to R conventions; applied to reducedSet
+
+#### Variables: Tidy data set
+tidyDataset = data set with average of each variable, by activity, by subject.
