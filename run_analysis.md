@@ -65,4 +65,13 @@ reducedNames <- gsub("^f", "frequency", reducedNames)
 reducedNames <- gsub("^anglet", "angleTime", reducedNames)
 names(reducedSet) <- reducedNames   # Apply new names to dataframe
 ```
-
+## Create tidy dataset with average of each variable, by activity, by subject
+Create tidy dataset
+```
+tidyDataset <- reducedSet %>% group_by(activity, subject) %>% 
+  summarise_all(funs(mean))
+```
+Write tidy data to output file
+```
+write.table(tidyDataset, file = "tidyDataset.txt", row.names = FALSE)
+```
